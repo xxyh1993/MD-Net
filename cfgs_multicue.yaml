@@ -1,0 +1,31 @@
+vgg16: /mnt/zx-multiattention/vgg16-397923af.pth  #D:/CED Project/vgg16-397923af.pth
+  #ResNet50stage: C:\Users\VULCAN\Desktop\resnet50-19c8e357.pth
+
+c: 0.1  #平衡CE和戴斯系数两项的占比
+
+dataset:
+  BSDS: F:/LC/ZhangXiao/BSDS/HED-BSDS
+  BSDS-VOC: F:/LC/ZhangXiao/BSDS
+  Multicue: /mnt/Dataset/multicue  #I:/multicue
+#  PASCAL-Context: D:\DataSet\PASCAL_Context
+#  PASCAL-VOC12: D:\DataSet\VOCdevkit
+#  NYUD-V2: D:\DataSet\NYUD
+#  PASCAL-Context: D:\DataSet\PASCAL
+
+multicue_seq: 1
+
+# train 16 32 8 for nyud and PASCAL-Context 10 8 2 for bsds PASCAL12: 10 64 16
+batch_size: 1  #原来是2
+max_epoch: 50 #edges--80                 b-50
+decay_rate: 0.1
+decay_steps: 15  #edges--40  (lr限制1e-15)   b-15
+
+# optimization Adam or SGD
+method: SGD
+lr: 1.0e-6   #edges--1e-7   b-1e-6
+momentum: 0.9
+weight_decay: 2.0e-4
+
+# save
+sava_epoch: 2
+save_name: model.pth
